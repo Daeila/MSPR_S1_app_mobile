@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './components/Home'
 import ItemList from './components/ItemList'
 
-//import ScanScreen from './components/Scan';
+import ScanScreen from './components/Scan';
 
 
 
@@ -18,6 +18,7 @@ export default function App() {
     <NavigationContainer>{
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }} />
+        <Stack.Screen name="Scan" component={ScanScreen} />
         <Stack.Screen name="ItemList" component={ItemList} />
       </Stack.Navigator>
     }</NavigationContainer>

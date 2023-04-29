@@ -12,6 +12,11 @@ export default class HomeScreen extends React.Component{
                 title="Go to ItemList"
                 onPress={() => navigation.navigate('ItemList')}
             />
+
+            <Button
+                title="Scan"
+                onPress={() => navigation.navigate('Scan')}
+            />
         </View>
         );
   }
