@@ -115,12 +115,11 @@ android {
 
     namespace "com.mspr4"
     defaultConfig {
-        applicationId "com.mspr4"
+        applicationId 'com.daeila.MSPR4'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
-        missingDimensionStrategy 'react-native-camera', 'general'
+        versionName "1.0.0"
     }
 
     splits {

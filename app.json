@@ -5,7 +5,18 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.daeila.MSPR4"
+    }
   },
-  "name": "MSPR4"
+  "name": "MSPR4",
+  "plugins": [
+    [
+      "@viro-community/react-viro",
+      {
+        "androidXrMode": "AR" // or "GVR" or "OVR_MOBILE"
+      }
+    ]
+  ]
 }

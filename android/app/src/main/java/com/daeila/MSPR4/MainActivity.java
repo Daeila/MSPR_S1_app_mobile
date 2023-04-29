@@ -1,4 +1,4 @@
-package com.mspr4;
+package com.daeila.MSPR4;
 
 import android.os.Build;
 import android.os.Bundle;
