@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { useNavigation } from '@react-navigation/native';
 
-export default function ScanScreen() {
+export default function ScanScreen({ onAuthorize }) {
+
+  const navigation = useNavigation();
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
@@ -16,8 +20,14 @@ export default function ScanScreen() {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
+    if(data === 'revendeur'){
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    onAuthorize();
+    alert(`Accès autoriser`);
+    }
+    else{
+      alert(`Accès refusé, uniquement pour les revendeurs.`);
+    }
   };
 
   if (hasPermission === null) {
@@ -33,32 +43,14 @@ export default function ScanScreen() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
   );
 }
   
   const styles = StyleSheet.create({
-    centerText: {
-      flex: 1,
-      fontSize: 18,
-      padding: 32,
-      color: '#777'
-    },
-    textBold: {
-      fontWeight: '500',
-      color: '#000'
-    },
-    buttonText: {
-      fontSize: 21,
-      color: 'rgb(0,122,255)'
-    },
     container: {
       flex: 1,
       flexDirection: 'column',
       justifyContent: 'center',
-    },
-    buttonTouchable: {
-      padding: 16
     }
   });
