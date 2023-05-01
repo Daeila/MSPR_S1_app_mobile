@@ -26,6 +26,8 @@
     "expo-three": "^7.0.0",
     "react-native-reanimated": "~2.14.4",
     "react-native-webview": "^11.26.0",
-    "three": "^0.145.0"
+    "three": "^0.145.0",
+    "expo-barcode-scanner": "~12.3.2",
+    "expo-status-bar": "~1.4.4"
   }
 }
