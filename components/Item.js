@@ -2,21 +2,19 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import ThreeScene from './Modelisation_3D'
 
-import HelloWorldSceneAR from './AugmentedReality'
+import ARScreen from './AugmentedReality'
 
-import * as THREE from 'three';
-import { GLView } from 'expo-gl';
-import * as ExpoTHREE from 'expo-three';
-import { Canvas } from '@react-three/fiber';
+//import * as THREE from 'three';
+//import { GLView } from 'expo-gl';
+//import * as ExpoTHREE from 'expo-three';
+//import { Canvas } from '@react-three/fiber';
 
 export default class Item extends React.Component{
     render(){
         //const { navigation, route } = this.props;
         //const { product }  = route.params;
         return (
-            <View>hi</View>
-           // <ThreeScene/>
-           // <HelloWorldSceneAR/>
+           <ARScreen/>
         );
   }
 }

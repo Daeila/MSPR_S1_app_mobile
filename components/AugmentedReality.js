@@ -1,72 +1,107 @@
-'use strict';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { WebView } from 'react-native-webview';
+import { Camera } from 'expo-camera';
 
-import React, { Component } from 'react';
-import {StyleSheet} from 'react-native';
-//import {
-  //ViroARScene,
- // ViroText,
-  //ViroMaterials,
-  //ViroBox,
-  //Viro3DObject,
-  //ViroAmbientLight,
-  //ViroSpotLight,
-  //ViroARPlaneSelector,
-  //ViroNode,
-  //ViroAnimations,
-//} from '@viro-community/react-viro';
+const ARScreen = () => {
+  console.log("ARScreen called");
+  const arHtml = `
+  <html>
+  <head>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjss="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+      <a-marker preset="hiro">
+        <a-box position='0 0.5 0' material='color: red;'></a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
+  `;
 
-/*
-const HelloWorldSceneAR = () => {
-  const [text, setText] = useState('Initializing AR...');
+  const [hasPermission, setHasPermission] = useState(null);
+  const [cameraRef, setCameraRef] = useState(null);
+
+  const webViewRef = useRef(null);
+
+  useEffect(() => {
+    (async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  }, []);
+
+  const handleLoadEnd = () => {
+    console.log("handleLoadEnd called");
+    const injectScript = `
+      const scene = document.querySelector('a-scene');
+      const marker = document.querySelector('a-marker');
+      if (scene && marker) {
+        scene.style.display = 'block';
+        marker.addEventListener('markerFound', () => {
+          scene.emit('arjs-marker-found');
+        });
+        marker.addEventListener('markerLost', () => {
+          scene.emit('arjs-marker-lost');
+        });
+      }
+    `;
+    webViewRef.current.injectJavaScript(injectScript);
+    console.log("webViewRef", webViewRef);
+
+  };
+
+  if (hasPermission === null) {
+    return <View style={styles.container}><Text>Demander l'autorisation d'utiliser la caméra...</Text></View>;
+  }
+  if (hasPermission === false) {
+    return <View style={styles.container}><Text>L'autorisation d'utiliser la caméra a été refusée</Text></View>;
+  }
 
   return (
-    <ViroARScene onTrackingUpdated={(state, reason) => {
-      if (state === 2) {  // ViroConstants.TRACKING_NORMAL
-        setText('Hello World!');
-      }
-    }}>
-      <ViroText
-        text={text}
-        scale={[.1, .1, .1]}
-        height={1}
-        width={4}
-        position={[0, .5, -1]}
-        style={styles.helloWorldTextStyle}
-      />
-
-      <ViroAmbientLight color="#aaaaaa" />
-      <ViroSpotLight
-        innerAngle={5}
-        outerAngle={90}
-        direction={[0, -1, -.2]}
-        position={[0, 3, 1]}
-        color="#ffffff"
-        castsShadow={true}
-      />
-
-      <Viro3DObject
-        source={require('../assets/coffeemachine.obj')}
-        resources={[
-            require('../assets/coffeemachine.mtl')
-        ]}
-        position={[0, 0, -1]}
-        scale={[.2, .2, .2]}
-        type="OBJ"
-        dragType="FixedDistance"
-        onDrag={() => {}}
-      />
-    </ViroARScene>
+    <View style={styles.container}>
+       <Camera style={styles.camera} ref={setCameraRef}>
+       <WebView
+          ref={webViewRef}
+          originWhitelist={['*']}
+          source={{ html: arHtml }}
+          onLoadEnd={handleLoadEnd}
+          mediaPlaybackRequiresUserAction={false}
+  />
+      </Camera>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  helloWorldTextStyle: {
-    fontFamily: 'Arial',
-    fontSize: 50,
-    color: '#ffffff',
-    textAlignVertical: 'center',
-    textAlign: 'center',
+  centerText: {
+    flex: 1,
+    fontSize: 18,
+    padding: 32,
+    color: '#777'
   },
+  textBold: {
+    fontWeight: '500',
+    color: '#000'
+  },
+  buttonText: {
+    fontSize: 21,
+    color: 'rgb(0,122,255)'
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  camera: {
+    flex: 1,
+  },
+  buttonTouchable: {
+    padding: 16
+  }
 });
 
-export default HelloWorldSceneAR;*/
+export default ARScreen;

@@ -1,10 +1,6 @@
-import React, { Suspense, useLayoutEffect } from 'react';
-import {View} from 'react-native';
+import React, { Suspense, useLayoutEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { GLView } from 'expo-gl';
-import * as ExpoTHREE from 'expo-three';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { useState, useRef } from 'react';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import { TextureLoader } from 'expo-three';
