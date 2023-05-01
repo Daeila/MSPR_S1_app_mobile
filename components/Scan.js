@@ -1,56 +1,56 @@
-import React, { Component, Fragment } from 'react';
-import { TouchableOpacity, Text, Linking, View, Image, ImageBackground, BackHandler } from 'react-native';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
-//import styles from './scanStyle';
+import React, { useState, useEffect } from 'react';
+import { Text, View, StyleSheet, Button } from 'react-native';
+import { BarCodeScanner } from 'expo-barcode-scanner';
+import { useNavigation } from '@react-navigation/native';
 
-class ScanScreen extends Component {
-    onSuccess = e => {
-      Linking.openURL(e.data).catch(err =>
-        console.error('An error occured', err)
-      );
+export default function ScanScreen({ onAuthorize }) {
+
+  const navigation = useNavigation();
+  const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
+  const [authorized, setAuthorized] = useState(false);
+
+  useEffect(() => {
+    const getBarCodeScannerPermissions = async () => {
+      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      setHasPermission(status === 'granted');
     };
-  
-    render() {
-      return (
-        <QRCodeScanner
-          onRead={this.onSuccess}
-          flashMode={RNCamera.Constants.FlashMode.torch}
-          topContent={
-            <Text style={styles.centerText}>
-              Go to{' '}
-              <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-              your computer and scan the QR code.
-            </Text>
-          }
-          bottomContent={
-            <TouchableOpacity style={styles.buttonTouchable}>
-              <Text style={styles.buttonText}>OK. Got it!</Text>
-            </TouchableOpacity>
-          }
-        />
-      );
+
+    getBarCodeScannerPermissions();
+  }, []);
+
+  const handleBarCodeScanned = ({ type, data }) => {
+    if(data === 'revendeur'){
+    setScanned(true);
+    onAuthorize();
+    alert(`Accès autoriser`);
     }
+    else{
+      alert(`Accès refusé, uniquement pour les revendeurs.`);
+    }
+  };
+
+  if (hasPermission === null) {
+    return <Text>Requesting for camera permission</Text>;
   }
+  if (hasPermission === false) {
+    return <Text>No access to camera</Text>;
+  }
+
+  return (
+    <View style={styles.container}>
+      <BarCodeScanner
+        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        style={StyleSheet.absoluteFillObject}
+      />
+    </View>
+  );
+}
   
   const styles = StyleSheet.create({
-    centerText: {
+    container: {
       flex: 1,
-      fontSize: 18,
-      padding: 32,
-      color: '#777'
-    },
-    textBold: {
-      fontWeight: '500',
-      color: '#000'
-    },
-    buttonText: {
-      fontSize: 21,
-      color: 'rgb(0,122,255)'
-    },
-    buttonTouchable: {
-      padding: 16
+      flexDirection: 'column',
+      justifyContent: 'center',
     }
   });
-
-export default ScanScreen;
