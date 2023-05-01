@@ -1,8 +1,6 @@
 import React, { Suspense, useLayoutEffect } from 'react';
 import {View} from 'react-native';
 import * as THREE from 'three';
-import { GLView } from 'expo-gl';
-import * as ExpoTHREE from 'expo-three';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useState, useRef } from 'react';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
@@ -63,14 +61,14 @@ function CoffeeMachine (props){
   const animatedSensor = useAnimatedSensor(SensorType.GYROSCOPE, {
     interval: 100,
   });
-    return (      
-        <Canvas>
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          <Suspense fallback={null}>
+    return (
+        <Canvas style={{width: '100%', height: '100%'}}>
+            <ambientLight />
+            <pointLight position={[10, 10, 10]} />
+            <Suspense fallback={null}>
             <CoffeeMachine animatedSensor={animatedSensor}/>
-          </Suspense>
-      </Canvas>
+            </Suspense>
+        </Canvas>
     );
 }
 

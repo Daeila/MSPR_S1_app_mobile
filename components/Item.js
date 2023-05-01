@@ -7,7 +7,7 @@ export default class Item extends React.Component{
         const { navigation, route } = this.props;
         const { product }  = route.params;
         return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Item</Text>
             <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
             <Button title="Go back" onPress={() => navigation.goBack()} />
@@ -18,6 +18,7 @@ export default class Item extends React.Component{
             <Text style={styles.color}>Color: {product.details.color}</Text>
             <Text style={styles.price}>Price: {product.details.price}</Text>
             <ThreeScene/>
+
 
         </View>
         );
