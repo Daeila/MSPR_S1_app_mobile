@@ -70,6 +70,7 @@ const ARScreen = () => {
           source={{ html: arHtml }}
           onLoadEnd={handleLoadEnd}
           mediaPlaybackRequiresUserAction={false}
+          style ={{backgroundColor: 'transparent'}}
   />
       </Camera>
     </View>
