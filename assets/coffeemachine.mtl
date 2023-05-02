@@ -1,0 +1,162 @@
+# Blender 3.4.1 MTL File: 'CoffeeMachine.blend'
+# www.blender.org
+
+newmtl Backdropfdfff
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/purple_galaxy_texture_by_sweetlysecret_d8i0t81.png
+
+newmtl KNOBSjuhuihuihuighou
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/NFO_Plastic008_A8.jpg
+
+newmtl guyftuuyhiudkjfgkj
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/NFO_Plastic008_A8.jpg
+
+newmtl hjbhjhjbh58474
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/NFO_Plastic008_A8.jpg
+
+newmtl hjghvhgvhgjhgiyg
+Ns 590.103271
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl ikjhiuhguighuig
+Ns 647.293396
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl jhbhguhbouhiu
+Ns 676.880127
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl jhbhjbhbghjbh
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/NFO_Plastic008_A8.jpg
+
+newmtl jhgghyghghghygjghbyi
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl jyughu
+Ns 707.128174
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl kjbjhbvhyuvif
+Ns 590.103271
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl kjhbjkbhbvuhgvhjbvgb
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/NFO_Plastic008_A8.jpg
+
+newmtl kjoioiioiohioohou
+Ns 684.380127
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Logo_Color.jpg
+
+newmtl lknkljnjkbhjvhvbjol
+Ns 761.652893
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl mnkjbjkbj
+Ns 684.380127
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Metal010_1K_Color.jpg
+
+newmtl thfthfthfthfthft
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd bar-coffee-machine-blend-free-low-poly/source/CoffeeMachineObject/Object And Texture/Knobs_Color.jpg
