@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Button, View, Text, StyleSheet, ScrollView, FlatList} from 'react-native'
+import { Button, View, Text, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native'
 
 export default class ItemList extends React.Component{
     constructor(props) {
@@ -18,7 +18,21 @@ export default class ItemList extends React.Component{
 
     render(){
         const { navigation } = this.props;
-       // const [items, setItems] = useState([]);
+       
+        const handleItemPress = (product) => {
+            navigation.navigate('Item', { product });
+          }
+          
+          const renderItem = ({ item }) => {
+            return (
+              <View style={styles.item}>
+                <TouchableOpacity style={styles.titleButton} onPress={() => handleItemPress(item)}>
+                    <Text style={styles.title}>{item.name}</Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }
+
         return(
             <View>
                 <Text>Liste des articles</Text>
@@ -27,15 +41,8 @@ export default class ItemList extends React.Component{
 
                 <FlatList
                     data={this.state.items}
-                    renderItem={({ item }) => 
-                    <View style={styles.item}>
-                        <Text style={styles.title}>{item.name}</Text>
-                        <Text style={styles.description}>{item.details.description}</Text>
-                        <Text style={styles.color}>Color: {item.details.color}</Text>
-                        <Text style={styles.price}>Price: {item.details.price}</Text>
-                    </View>
-                    }
-                    keyExtractor={item => item.id.toString()}
+                    renderItem={ renderItem }
+                    keyExtractor={product => product.id.toString()}
                 />
             </View>
         )
@@ -49,5 +56,14 @@ const styles = StyleSheet.create({
     title: {
         fontSize:22,
         marginBottom:20
+    },
+    titleButton: {
+        fontSize:22,
+        marginBottom:20,
+        backgroundColor: '#007AFF',
+        borderRadius: 10,
+        padding: 10,
+        color: '#FFFFFF',
+        textAlign: 'center'
     }
 })
