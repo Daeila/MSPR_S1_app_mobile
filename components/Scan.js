@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { useNavigation } from '@react-navigation/native';
 
 export default function ScanScreen({ onAuthorize }) {
 
-  const navigation = useNavigation();
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
     const getBarCodeScannerPermissions = async () => {
