@@ -1,8 +1,7 @@
 import React, { Suspense, useLayoutEffect } from 'react';
-import {View} from 'react-native';
 import * as THREE from 'three';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 import { TextureLoader } from 'expo-three';

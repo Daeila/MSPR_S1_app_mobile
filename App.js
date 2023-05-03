@@ -1,13 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './components/Home'
 import ItemList from './components/ItemList'
 import Item from './components/Item'
-
 import ScanScreen from './components/Scan';
 
 
@@ -26,9 +23,9 @@ export default function App() {
     <NavigationContainer>
       {authorized ? (
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Overview' }} />
-        <Stack.Screen name="ItemList" component={ItemList} />
-        <Stack.Screen name="Item" component={Item} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Accueil' }}/>
+        <Stack.Screen name="ItemList" component={ItemList} options={{ title: 'Liste des produits' }}/>
+        <Stack.Screen name="Item" component={Item} options={{ title: 'Fiche produit' }}/>
       </Stack.Navigator>
       ) : (
         <ScanScreen onAuthorize={handleAuthorization} />   
@@ -36,12 +33,3 @@ export default function App() {
     }</NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

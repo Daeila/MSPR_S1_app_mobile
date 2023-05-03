@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { Button, View, Text, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native'
+import React from "react"
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 
 export default class ItemList extends React.Component{
     constructor(props) {
@@ -34,11 +34,7 @@ export default class ItemList extends React.Component{
           }
 
         return(
-            <View>
-                <Text>Liste des articles</Text>
-                <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-                <Button title="Go back" onPress={() => navigation.goBack()} />
-
+            <View style={styles.view}>
                 <FlatList
                     data={this.state.items}
                     renderItem={ renderItem }
@@ -50,8 +46,13 @@ export default class ItemList extends React.Component{
 }
 
 const styles = StyleSheet.create({
+    view:{
+        flex: 1, 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+    },
     item:{
-        margin:20
+        margin:10
     },
     title: {
         fontSize:22,
